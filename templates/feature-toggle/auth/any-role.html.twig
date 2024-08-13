@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AuthController!{% endblock %}
+
+{% block body %}
+    {% if is_content_for_admin %}
+        <div class="example-wrapper">
+            <div>
+                <h1>New Feature Content [For admins]</h1>
+                <p>This content is only visible when the new feature is enabled.</p>
+            </div>
+        </div>
+    {% else %}
+        <div class="example-wrapper">
+            <div>
+                <h1>New Feature Content [For users]</h1>
+                <p>This content is only visible when the new feature is enabled.</p>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

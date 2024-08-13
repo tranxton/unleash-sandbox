@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+    app:
+        hostname: app
+        build:
+            context: .
+            dockerfile: docker/app/Dockerfile
+        volumes:
+            - .:/app
+        ports:
+            - "8080:8080"
+        depends_on:
+            - unleash
+            - redis
+        networks:
+            - unleash_demo_network
+
+    unleash:
+        hostname: unleash
+        image: unleashorg/unleash-server:6
+        environment:
+            DATABASE_URL: postgres://unleash:unleash@postgres/unleash
+            DATABASE_SSL: 'false'
+            DATABASE_SCHEMA: public
+            DATABASE_HOST: postgres
+            DATABASE_PORT: 5432
+            DATABASE_NAME: unleash
+            DATABASE_USERNAME: unleash
+            DATABASE_PASSWORD: unleash
+        ports:
+            - "4242:4242"
+        depends_on:
+            - postgres
+        networks:
+            - unleash_demo_network
+
+    postgres:
+        hostname: postgres
+        image: postgres:16.3
+        environment:
+            POSTGRES_DB: unleash
+            POSTGRES_USER: unleash
+            POSTGRES_PASSWORD: unleash
+        volumes:
+            - postgres:/var/lib/postgresql/data
+        networks:
+            - unleash_demo_network
+
+    redis:
+        hostname: redis
+        image: redis:7.4
+        ports:
+            - "6379:6379"
+        networks:
+            - unleash_demo_network
+
+volumes:
+    postgres:
+
+networks:
+    unleash_demo_network:
+        driver: bridge

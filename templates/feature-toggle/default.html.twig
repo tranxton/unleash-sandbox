@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FeatureToggleController!{% endblock %}
+
+{% block body %}
+    <div class="example-wrapper">
+        {% if new_feature_enabled %}
+            <div>
+                <h1>New Feature Content [Default]</h1>
+                <p>This content is only visible when the new feature is enabled.</p>
+            </div>
+        {% else %}
+            <div>
+                <h1>Old Feature Content [Default]</h1>
+                <p>This content is visible when the new feature is disabled.</p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

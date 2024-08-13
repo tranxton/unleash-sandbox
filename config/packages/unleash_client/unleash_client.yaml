@@ -1,0 +1,47 @@
+unleash_client:
+  dsn: '%env(UNLEASH_URL)%'
+
+  context:
+    # The field name to use as user id, if set to null getUserIdentifier() or getUsername() method will be called
+    user_id_field: id
+    # Any additional context properties
+    custom_properties:
+      roles: '> user ? user.getImplodedRoles() : ""'
+
+  # Whether to enable communication with Unleash server or not. If you set it to false you must also provide a bootstrap.
+  fetching_enabled: true
+  # The http client service, must implement the Psr\Http\Client\ClientInterface or Symfony\Contracts\HttpClient\HttpClientInterface interface
+  http_client_service: psr18.http_client
+  # The request factory service, must implement the Psr\Http\Message\RequestFactoryInterface interface. Providing null means autodetect between supported default services.
+  request_factory_service: null
+  # The cache service, must implement the Psr\SimpleCache\CacheInterface or Psr\Cache\CacheItemPoolInterface interface
+  cache_service: cache.app
+  # Default bootstrap in case contacting Unleash servers fails. Can be a path to file (prefixed with file://) or a service implementing Unleash\Client\Bootstrap\BootstrapProvider (prefixed with @)
+  # For some reason exported dump of the bootstrap file is not working by default
+  bootstrap: null
+  # Disabled default strategies, must be one of: default, flexibleRollout, gradualRolloutRandom, gradualRolloutSessionId, gradualRolloutUserId, remoteAddress, userWithId, applicationHostname
+  disabled_strategies: [ ]
+  # The interval at which to send metrics to the server in milliseconds
+  metrics_send_interval: 30000
+  # Whether to allow sending feature usage metrics to your instance of Unleash, set this to false for GitLab
+  metrics_enabled: true
+  # Whether to allow automatic client registration on client initialization, set this to false for GitLab
+  auto_registration: true
+  # The time in seconds the features will stay valid in cache
+  cache_ttl: 15
+  # The maximum age (in seconds) old features will be served from cache if http request fails for some reason
+  stale_ttl: 15
+  # Additional headers to use in http client, for Unleash "Authorization" is required
+  custom_headers:
+    Authorization: '%env(UNLEASH_API_TOKEN)%'
+  # Enable or disable twig function/filter/tests
+  twig:
+    # Enables the "feature_is_enabled" and "feature_variant" twig functions
+    functions: true
+    # Enables the "feature_is_enabled" and "feature_variant" filters
+    filters: true
+    # Enables the "enabled" test, allowing you to write {% if "featureName" is enabled %}
+    tests: false
+    # Enables the "feature" twig tag
+    tags: false
+

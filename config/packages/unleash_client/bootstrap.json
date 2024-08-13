@@ -1,0 +1,255 @@
+{
+	"features": [
+		{
+			"name": "admin-feature-flag",
+			"description": null,
+			"type": "release",
+			"project": "default",
+			"stale": false,
+			"impressionData": false,
+			"archived": false
+		},
+		{
+			"name": "attribute-feature-flag",
+			"description": "Adding some new functionality ",
+			"type": "experiment",
+			"project": "default",
+			"stale": false,
+			"impressionData": false,
+			"archived": false
+		},
+		{
+			"name": "default-feature-flag",
+			"description": null,
+			"type": "release",
+			"project": "default",
+			"stale": false,
+			"impressionData": false,
+			"archived": false
+		},
+		{
+			"name": "feature-flag-of-another-team",
+			"description": null,
+			"type": "release",
+			"project": "default",
+			"stale": false,
+			"impressionData": false,
+			"archived": false
+		},
+		{
+			"name": "kill-switch-flag",
+			"description": null,
+			"type": "kill-switch",
+			"project": "default",
+			"stale": false,
+			"impressionData": false,
+			"archived": false
+		},
+		{
+			"name": "rollout-feature-flag",
+			"description": null,
+			"type": "release",
+			"project": "default",
+			"stale": false,
+			"impressionData": false,
+			"archived": false
+		},
+		{
+			"name": "stale-feature-flag",
+			"description": null,
+			"type": "release",
+			"project": "default",
+			"stale": true,
+			"impressionData": false,
+			"archived": false
+		},
+		{
+			"name": "twig-feature-flag",
+			"description": "Adding some new functionality ",
+			"type": "experiment",
+			"project": "default",
+			"stale": false,
+			"impressionData": false,
+			"archived": false
+		}
+	],
+	"featureStrategies": [
+		{
+			"name": "flexibleRollout",
+			"id": "7d294010-505e-46c8-a31c-ae95700bf666",
+			"featureName": "admin-feature-flag",
+			"title": "",
+			"parameters": {
+				"groupId": "userid",
+				"rollout": "100",
+				"stickiness": "default"
+			},
+			"constraints": [],
+			"variants": [],
+			"disabled": false,
+			"segments": [
+				1
+			]
+		},
+		{
+			"name": "flexibleRollout",
+			"id": "dd6b8923-e96a-4b66-99c4-12327e7f4159",
+			"featureName": "attribute-feature-flag",
+			"title": "",
+			"parameters": {
+				"groupId": "attribute-feature-flag",
+				"rollout": "100",
+				"stickiness": "default"
+			},
+			"constraints": [],
+			"variants": [],
+			"disabled": false,
+			"segments": []
+		},
+		{
+			"name": "flexibleRollout",
+			"id": "d7f8aa3f-eaac-41cc-95de-3ce53bdc74ed",
+			"featureName": "default-feature-flag",
+			"title": null,
+			"parameters": {
+				"groupId": "default-feature-flag",
+				"rollout": "100",
+				"stickiness": "default"
+			},
+			"constraints": [],
+			"variants": [],
+			"disabled": false,
+			"segments": []
+		},
+		{
+			"name": "flexibleRollout",
+			"id": "8d2f9bde-3bce-4fc0-9f4b-87816980b102",
+			"featureName": "stale-feature-flag",
+			"title": null,
+			"parameters": {
+				"groupId": "stale-feature-flag",
+				"rollout": "100",
+				"stickiness": "default"
+			},
+			"constraints": [],
+			"variants": [],
+			"disabled": false,
+			"segments": []
+		},
+		{
+			"name": "flexibleRollout",
+			"id": "35291bcf-d698-43aa-aaca-4414c097c88a",
+			"featureName": "twig-feature-flag",
+			"title": "",
+			"parameters": {
+				"groupId": "twig-feature-flag",
+				"rollout": "100",
+				"stickiness": "default"
+			},
+			"constraints": [],
+			"variants": [],
+			"disabled": false,
+			"segments": []
+		}
+	],
+	"featureEnvironments": [
+		{
+			"enabled": true,
+			"featureName": "admin-feature-flag",
+			"environment": "development",
+			"variants": [],
+			"name": "admin-feature-flag"
+		},
+		{
+			"enabled": false,
+			"featureName": "attribute-feature-flag",
+			"environment": "development",
+			"variants": [],
+			"name": "attribute-feature-flag"
+		},
+		{
+			"enabled": false,
+			"featureName": "default-feature-flag",
+			"environment": "development",
+			"variants": [],
+			"name": "default-feature-flag"
+		},
+		{
+			"enabled": false,
+			"featureName": "feature-flag-of-another-team",
+			"environment": "development",
+			"variants": [],
+			"name": "feature-flag-of-another-team"
+		},
+		{
+			"enabled": false,
+			"featureName": "kill-switch-flag",
+			"environment": "development",
+			"variants": [],
+			"name": "kill-switch-flag"
+		},
+		{
+			"enabled": false,
+			"featureName": "rollout-feature-flag",
+			"environment": "development",
+			"variants": [],
+			"name": "rollout-feature-flag"
+		},
+		{
+			"enabled": false,
+			"featureName": "stale-feature-flag",
+			"environment": "development",
+			"variants": [],
+			"name": "stale-feature-flag"
+		},
+		{
+			"enabled": false,
+			"featureName": "twig-feature-flag",
+			"environment": "development",
+			"variants": [],
+			"name": "twig-feature-flag"
+		}
+	],
+	"contextFields": [],
+	"featureTags": [
+		{
+			"featureName": "attribute-feature-flag",
+			"tagType": "teams",
+			"tagValue": "team12"
+		},
+		{
+			"featureName": "default-feature-flag",
+			"tagType": "teams",
+			"tagValue": "team12"
+		},
+		{
+			"featureName": "feature-flag-of-another-team",
+			"tagType": "teams",
+			"tagValue": "team13"
+		},
+		{
+			"featureName": "kill-switch-flag",
+			"tagType": "teams",
+			"tagValue": "team12"
+		},
+		{
+			"featureName": "stale-feature-flag",
+			"tagType": "teams",
+			"tagValue": "team12"
+		}
+	],
+	"segments": [
+		{
+			"id": 1,
+			"name": "Only for admins"
+		}
+	],
+	"tagTypes": [
+		{
+			"name": "teams",
+			"description": "Team that added the tag",
+			"icon": null
+		}
+	],
+	"dependencies": []
+}
