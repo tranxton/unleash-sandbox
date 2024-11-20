@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
     app:
         hostname: app
@@ -13,8 +11,6 @@ services:
         depends_on:
             - unleash
             - redis
-        networks:
-            - unleash_demo_network
 
     unleash:
         hostname: unleash
@@ -32,8 +28,6 @@ services:
             - "4242:4242"
         depends_on:
             - postgres
-        networks:
-            - unleash_demo_network
 
     postgres:
         hostname: postgres
@@ -44,8 +38,6 @@ services:
             POSTGRES_PASSWORD: unleash
         volumes:
             - postgres:/var/lib/postgresql/data
-        networks:
-            - unleash_demo_network
 
     redis:
         hostname: redis
@@ -59,5 +51,6 @@ volumes:
     postgres:
 
 networks:
-    unleash_demo_network:
+    default:
+        name: unleash-demo
         driver: bridge

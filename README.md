@@ -74,7 +74,7 @@ This is a sandbox project that demonstrates how to use the Unleash feature toggl
        ![Step 5 - Add Segment Constraint](documentation/images/7_adding_segment.png)
 
 5. **Import Feature Flags Dump to Unleash:**
-    1. Locate the dump file in the `config/packages/unleash_client/bootstrap.json` directory.
+    1. Locate the dump file in the `config/packages/unleash_client/exported_feature_flags.json`.
     2. Open the Unleash dashboard.
     3. Go to the "default" project.
     4. Click "Import".
