@@ -5,7 +5,7 @@ services:
             context: .
             dockerfile: docker/app/Dockerfile
         volumes:
-            - .:/app
+            - .:/app:rw
         ports:
             - "8080:8080"
         depends_on:
@@ -44,8 +44,6 @@ services:
         image: redis:7.4
         ports:
             - "6379:6379"
-        networks:
-            - unleash_demo_network
 
 volumes:
     postgres:

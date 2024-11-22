@@ -5,7 +5,7 @@ COPY --from=spiralscout/roadrunner:2024 /usr/bin/rr /usr/bin/rr
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
-RUN apk add --no-cache \
+RUN apk update && apk upgrade && apk add --no-cache \
     postgresql-dev \
     oniguruma-dev \
     linux-headers \
@@ -22,10 +22,18 @@ RUN apk add --no-cache \
     session \
     simplexml \
     opcache \
-    sockets
+    sockets \
+    && pecl install  \
+    redis \
+    && docker-php-ext-enable  \
+    redis \
+    opcache
 
 WORKDIR /app
 
-COPY . /app
+COPY ./docker/app/opcache.ini /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini
+COPY .                        /app
 
-CMD ["rr", "serve", "-c", ".rr.yml"]
+RUN git config --global --add safe.directory /app
+
+CMD ["rr", "serve", "-c", ".rr.yaml"]

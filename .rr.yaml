@@ -1,0 +1,47 @@
+version: "3"
+
+server:
+  command: "php public/index.php"
+  env:
+    - APP_RUNTIME: Baldinof\RoadRunnerBundle\Runtime\Runtime
+
+http:
+  address: 0.0.0.0:8080
+  middleware: [ "static", "gzip" ]
+  pool:
+    num_workers: 4
+    max_jobs: 2000
+  uploads:
+    forbid: [ ".php", ".exe", ".bat" ]
+  static:
+    dir: "public"
+    forbid: [ ".php", ".htaccess" ]
+
+logs:
+  encoding: console
+  mode: production
+  output: stdout
+  channels:
+    http:
+      level: info
+    server:
+      level: error
+      mode: raw
+      encoding: json
+      file_logger_options:
+        log_output: "/app/var/log/roadrunner/server.log"
+        max_size: 2
+        max_age: 24
+        max_backups: 1
+        compress: false
+    metrics:
+      level: error
+      mode: raw
+      encoding: json
+      file_logger_options:
+        log_output: "/app/var/log/roadrunner/metrics.log"
+        max_size: 2
+        max_age: 24
+        max_backups: 1
+        compress: false
+
