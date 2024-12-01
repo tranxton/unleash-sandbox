@@ -1,6 +1,32 @@
+## Table of Contents
+
+1. [Unleash Sandbox](#unleash-sandbox)
+2. [Pre-requisites](#pre-requisites)
+3. [About App Build](#about-app-build)
+4. [Credentials](#credentials)
+    - [Unleash](#unleash)
+    - [Grafana](#grafana)
+    - [Prometheus](#prometheus)
+5. [First Steps](#first-steps)
+    1. [Clone the Repository](#1-clone-the-repository)
+    2. [Initialize the App](#2-initialize-the-app)
+    3. [Prepare the App for Development or Production](#3-prepare-the-app-for-development-or-production)
+    4. [Add Unleash API Tokens](#4-add-unleash-api-tokens)
+    5. [Create "Only for admins" segment](#5-create-only-for-admins-segment)
+    6. [Import Feature Flags Dump to Unleash](#6-import-feature-flags-dump-to-unleash)
+    7. [Your Project is Ready to Use](#7-your-project-is-ready-to-use)
+6. [File Structure Overview](#file-structure-overview)
+7. [Code Samples](#code-samples)
+8. [URLs](#urls)
+9. [Predefined Users](#predefined-users)
+10. [Testing](#testing)
+    - [Simple Postman Testing](#1-simple-postman-testing)
+    - [Performance Testing with K6](#2-performance-testing-with-k6)
+11. [Further Help](#further-help)
+
 # Unleash Sandbox
 
-This is a sandbox project that demonstrates how to use the Unleash feature toggle service in a Symfony application.
+This is a sandbox project that demonstrates how to use the Unleash feature toggle service in a Symfony application
 
 ## Pre-requisites
 
@@ -40,7 +66,7 @@ Access the Grafana dashboard using the following credentials:
 - **Username**: `admin`
 - **Password**: `admin`
 
-### Grafana
+### Prometheus
 Access the Prometheus storage:
 
 - **URL**: [http://localhost:9090](http://localhost:9090)
