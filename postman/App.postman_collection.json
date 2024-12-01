@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "2bba3692-7d71-443e-9f75-eb4b4afa5f1f",
+		"name": "App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18304602"
+	},
+	"item": [
+		{
+			"name": "With Unleash",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/feature-toggle/benchmark/with-unleash",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"feature-toggle",
+						"benchmark",
+						"with-unleash"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "With Unleash multiple calls",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/feature-toggle/benchmark/with-unleash-multiple-calls",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"feature-toggle",
+						"benchmark",
+						"with-unleash-multiple-calls"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Without Unleash",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/feature-toggle/benchmark/without-unleash",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"feature-toggle",
+						"benchmark",
+						"without-unleash"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}

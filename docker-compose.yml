@@ -1,3 +1,13 @@
+volumes:
+    postgres:
+    prometheus:
+    grafana:
+
+networks:
+    default:
+        name: unleash-demo
+        driver: bridge
+
 services:
     app:
         hostname: app
@@ -45,10 +55,34 @@ services:
         ports:
             - "6379:6379"
 
-volumes:
-    postgres:
+    prometheus:
+        hostname: prometheus
+        image: prom/prometheus:v3.0.0
+        ports:
+            -   "9090:9090"
+        volumes:
+            -   ./docker/prometheus/config.yaml:/etc/prometheus/prometheus.yml:ro
+            -   prometheus:/prometheus
+        depends_on:
+            -   app
 
-networks:
-    default:
-        name: unleash-demo
-        driver: bridge
+    grafana:
+        hostname: grafana
+        image: grafana/grafana:11.3.1
+        ports:
+            -   "3000:3000"
+        volumes:
+            -   grafana:/var/lib/grafana
+        depends_on:
+            -   prometheus
+
+    k6:
+        hostname: k6
+        image: grafana/k6:0.55.0
+        environment:
+            - K6_PROMETHEUS_RW_SERVER_URL=http://localhost:9090/api/v1/write
+        volumes:
+            -   ./benchmarks/k6:/app
+        command: run example.js
+        depends_on:
+            -   app

@@ -64,7 +64,7 @@ app.build.dev: \
 
 app.cache.clear:
 	@echo "Clearing the cache..."
-	@$(DOCKER_EXEC_APP) php bin/console cache:clear
+	@$(DOCKER_EXEC_APP) bin/console cache:clear
 	@echo "Cache was successfully cleared."
 
 app.composer.dump-prod-env:

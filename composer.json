@@ -101,22 +101,18 @@
             "cache:clear": "symfony-cmd",
             "importmap:install": "symfony-cmd"
         },
-        "post-install-cmd": [
-            "@auto-scripts"
-        ],
-        "post-update-cmd": [
-            "@auto-scripts"
-        ],
         "first-install": [
             "@composer install --ignore-platform-reqs --optimize-autoloader --classmap-authoritative"
         ],
         "install-prod": [
             "@composer install --no-dev --audit --no-autoloader",
-            "@composer dump-autoload --optimize --classmap-authoritative --strict-psr"
+            "@composer dump-autoload --optimize --classmap-authoritative --strict-psr",
+            "@auto-scripts"
         ],
         "install-dev": [
-            "@composer install --dev --audit --no-autoloader",
-            "@composer dump-autoload --optimize --classmap-authoritative --strict-psr"
+            "@composer install --audit --no-autoloader",
+            "@composer dump-autoload --optimize --classmap-authoritative --strict-psr",
+            "@auto-scripts"
         ]
     },
     "conflict": {

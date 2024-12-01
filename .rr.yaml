@@ -7,15 +7,18 @@ server:
 
 http:
   address: 0.0.0.0:8080
-  middleware: [ "static", "gzip" ]
+  middleware: [ "static", "gzip", "http_metrics" ]
   pool:
-    num_workers: 4
+    num_workers: 20
     max_jobs: 2000
   uploads:
     forbid: [ ".php", ".exe", ".bat" ]
   static:
     dir: "public"
     forbid: [ ".php", ".htaccess" ]
+
+metrics:
+  address: 0.0.0.0:2112
 
 logs:
   encoding: console

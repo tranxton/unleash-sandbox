@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "665993cf-7fc7-4089-8884-94f40efa7104",
+		"name": "Unleash",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18304602"
+	},
+	"item": [
+		{
+			"name": "Frontend API",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{frontend_api_token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/frontend?instance_id=PHP_SDK-first&app_name=default",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"frontend"
+					],
+					"query": [
+						{
+							"key": "instance_id",
+							"value": "PHP_SDK-first"
+						},
+						{
+							"key": "app_name",
+							"value": "default"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Backend API",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{backend_api_token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/client/features?instance_id=PHP_SDK-first&app_name=default",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"client",
+						"features"
+					],
+					"query": [
+						{
+							"key": "instance_id",
+							"value": "PHP_SDK-first"
+						},
+						{
+							"key": "app_name",
+							"value": "default"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:4242",
+			"type": "string"
+		},
+		{
+			"key": "backend_api_token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "frontend_api_token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
